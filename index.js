@@ -6,25 +6,13 @@ const app=express()
 const serverless = require('serverless-http')
 
 
-const cors = require('cors');
 
 app.use(bodyParser.urlencoded({extended:true}))
 
-const corsOptions = {
-    origin: 'http://localhost:3000/',
-    credentials: true,
-    optionSuccessStatus: 200
-}
+var cors = require('cors')
 
-app.use(cors(corsOptions));
+app.use(cors())
 
-app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', "http://localhost:3000");
-    res.header('Access-Control-Allow-Headers', true);
-    res.header('Access-Control-Allow-Credentials', true);
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    next();
-});
 
 app.use(express.static("public"));
 
