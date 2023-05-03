@@ -9,7 +9,7 @@ const serverless = require('serverless-http')
 const cors = require('cors');
 // app.use(cors({ origin: true }));
 var corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://f45c-43-205-237-119.ngrok-free.app',
     optionsSuccessStatus: 200 // For legacy browser support
 }
 
