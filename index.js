@@ -6,13 +6,10 @@ const app=express()
 const serverless = require('serverless-http')
 
 
+const cors = require('cors');
+app.use(cors({ origin: true }));
 
 app.use(bodyParser.urlencoded({extended:true}))
-
-var cors = require('cors')
-
-app.use(cors())
-
 
 app.use(express.static("public"));
 
