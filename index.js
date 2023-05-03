@@ -7,8 +7,13 @@ const serverless = require('serverless-http')
 
 
 const cors = require('cors');
-app.use(cors({ origin: true }));
+// app.use(cors({ origin: true }));
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200 // For legacy browser support
+}
 
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.use(express.static("public"));
