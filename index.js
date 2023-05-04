@@ -40,16 +40,12 @@ mongoose.connect(process.env.Address,{useNewUrlParser:true})
 const Schema= mongoose.Schema({
     name:{
         type:String,
-        required:[true,'Must provide name'],
-        maxlength:[20,'should not be more than 20 words']
     },
     rating:{
-        type:Number,
-        required:[true,'Must provide rating']
+        type:Number
     },
     review:{
         type:String,
-        required:[true,'Must provide review']
     }
 })
 
