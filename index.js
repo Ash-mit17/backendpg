@@ -6,25 +6,25 @@ const app=express()
 const serverless = require('serverless-http')
 
 
-const cors = require('cors');
-app.use(cors({ origin: true }));
-var corsOptions = {
-    origin: 'https://www.srinimishambapg.in/',
-    optionsSuccessStatus: 200 // For legacy browser support
-}
+// const cors = require('cors');
+// app.use(cors({ origin: true }));
+// var corsOptions = {
+//     origin: 'https://www.srinimishambapg.in/',
+//     optionsSuccessStatus: 200 // For legacy browser support
+// }
 
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header(
-//       "Access-Control-Allow-Headers",
-//       "Origin, X-Requested-With, Content-Type, Accept"
-//     );
-//     next();
-//   });
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
 
 
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.use(express.static("public"));
@@ -99,7 +99,7 @@ app.post("/data",async (req,res)=>{
     })
 
 app.listen(5000,(req,res)=>{
-    console.log("Server live on port 3000");
+    console.log("Server live on port 5000");
 })
 
 module.exports.handler=serverless(app);
