@@ -6,20 +6,25 @@ const app=express()
 const serverless = require('serverless-http')
 
 
-// const cors = require('cors');
-// // app.use(cors({ origin: true }));
-// var corsOptions = {
-//     origin: 'https://f45c-43-205-237-119.ngrok-free.app/data',
-//     optionsSuccessStatus: 200 // For legacy browser support
-// }
+const cors = require('cors');
+app.use(cors({ origin: true }));
+var corsOptions = {
+    origin: 'https://f45c-43-205-237-119.ngrok-free.app/data',
+    optionsSuccessStatus: 200 // For legacy browser support
+}
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://www.srinimishambapg.in/"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header(
+//       "Access-Control-Allow-Headers",
+//       "Origin, X-Requested-With, Content-Type, Accept"
+//     );
+//     next();
+//   });
 
-// app.use(cors(corsOptions));
+
+
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.use(express.static("public"));
