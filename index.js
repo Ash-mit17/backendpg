@@ -95,7 +95,7 @@ app.post("/data",async (req,res)=>{
     //         reviewarray1.push(element.review);
     //     });
         // res.render("home",{names:namearray1,rates:ratingarray1,reviews:reviewarray1});
-        res.redirect("/");
+        res.redirect("/data");
     })
 
 app.listen(5000,(req,res)=>{
